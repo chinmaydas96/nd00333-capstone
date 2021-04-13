@@ -1,25 +1,63 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
+# Predict Heart Disease Using Azure Machine Learning
 
-# Your Project Title Here
+* This project is a part of Udacity Machine Learning Engineer with Microsoft Nanogree's Capstone project.
 
-*TODO:* Write a short introduction to your project.
+* In this project we will implement hyperdrive and AutoML for heart disease prediction dataset.
+
+* We will deploy the model and do the inference with the sample json file for each model.
+
+
 
 ## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
 ## Dataset
 
+
+
+
+
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+
+* In this project we used kaggle's heart disease dataset.
+
+* [Link](https://www.kaggle.com/andrewmvd/heart-failure-clinical-data)
+
+* People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidaemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
+
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+
+* This is a classification problem.
+
+* Death due to Heart Failure is predicted using information usch as anaemia, diabetes, high blood pressure, platelets, serum_creatinine, serum_sodium, creatinine_phosporous and ejection_fraction.
+
+
+* We will use these features to predict if the patient has heart disease or not.
+
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+
+* I have uploaded the csv data into the azure ml dataset directory, from there I will directly use the dataset for hyperdrive and automl.
+
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
+* Azure machine learning studio has an AutoML functionality in which we can directly upload the dataset and it will run multiple model to get the best model with optimum metrics. 
+
+* And the best model also can be deployed and consumed with restAPI.
+
+* The following configuration is used here : 
+
+	* experiment_timeout_minutes : the time in minutes after the experiment timeouts which is set to 20.
+
+	* n_cross_validations the number of cross validations which is performed on the training data, set to 5
+
+	* may_concurrent_iterations describes the maximal number of tasks solfed in parallel, here 5.
+
+	* primary_metric the choosen metric - AUC_weighted
+
+![](images/parameters.png)
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
