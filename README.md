@@ -41,7 +41,6 @@
 
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
 * Azure machine learning studio has an AutoML functionality in which we can directly upload the dataset and it will run multiple model to get the best model with optimum metrics. 
 
@@ -50,11 +49,8 @@
 * The following configuration is used here : 
 
 	* experiment_timeout_minutes : the time in minutes after the experiment timeouts which is set to 20.
-
 	* n_cross_validations the number of cross validations which is performed on the training data, set to 5
-
 	* may_concurrent_iterations describes the maximal number of tasks solfed in parallel, here 5.
-
 	* primary_metric the choosen metric - AUC_weighted
 
 ![](images/parameters.png)
@@ -62,19 +58,68 @@
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+* The key benefit of AutoML is the variaty of different classification algorithems, their outputs are compared against eachother to find the best fitting model. Here the best fitted model is the VotingEnsemble, a detailed view shows the n_estimators=25, n_jobs=0 and the metrix of weights for more information to look into the model.
+
+* Our model give 0.92861 AUC
+
+![](images/Automl1.png)
+
+---
+
+![](images/Automl2.png)
+
+---
+
+![](images/Automl3.png)
+
+---
+
+#### Improvement :
+
+* To increase more data.
+* To implement deep learning model.
+
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+
+* AzureML supports hyperparameter tunig using hyperdrive package. Using hyperdrive, the parameter search space space can be defined using randon, grid or bayesian sampling. In the experiement, LogisticRegression classification was used. The training script loads the data, cleans that data, and runs LogisticRegression using the parameters supplied to the script and logs the metrics. The hyperdrive samples the paramters and calls the training script using a set of parameters at a time. Hyperdrive compares the metrics, and ranks the experiment runs based the specific metric. In this experiment, Accuracy was used to rank the runs.
+
+* The first branch of the workflow project leads to receiving a trained model using AutoML. Settings and configurations used for this experiment are a BanditPolicy as an early termination policy, RandomParameterSampling of the tuneable hyperparameters of the classifier and the HyperDriveConfig.
+
 
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+* As it turned out with an accuracy of 0.9078 (even better than the runs before) the hyperparameter combination of the Regularization Strength of 0.248 and 250 Max iterations lead to the best tuned model.
+
+* 
+
+![](images/hyperdrive1.png)
+
+---
+
+![](images/hyperdrive2.png)
+
+---
+
+![](images/hyperdrive3.png)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+* Automate ML model gives better result so we deployed the best run of AutoML.
+
+* Provide a scoring script that will be invoked by the web service call (using scoring.py). The scoring script must have two required functions, init() and run(input_data).
+
+* init(): Loading your model
+* run():Running your model on input data
+
+* Provide an environment file so that Azure Machine Learning can install the necessary packages in the Docker image which are required by your scoring script.
+
+* Create InferenceConfig:
+
+* An inference configuration describes how to set up the web-service containing your model. It's used later when you deploy the model.
+Best run environment and score.py file is provided to the InferenceConfig. cpu_cores and memory_gb are initialized as 1 for the deployment configuration and deploy to Azure Container Instance(ACI).
+
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
