@@ -127,22 +127,22 @@
 
 * Automate ML model gives better result so we deployed the best run of AutoML.
 
-* Provide a scoring script that will be invoked by the web service call (using scoring.py). The scoring script must have two required functions, init() and run(input_data).
+* Provide a scoring script that will be invoked by the web service call (using score_aml.py). The scoring script must have two required functions, init() and run(input_data).
 
-* init(): Loading your model
-* run():Running your model on input data
+*  The deployed model was configured in Azure Container Instance(ACI) with cpu_cores and memory_gb parameters initialized as 1.
 
-* Provide an environment file so that Azure Machine Learning can install the necessary packages in the Docker image which are required by your scoring script.
+![](images/deploy1.png)
 
-* Create InferenceConfig:
+---
 
-* An inference configuration describes how to set up the web-service containing your model. It's used later when you deploy the model.
-Best run environment and score.py file is provided to the InferenceConfig. cpu_cores and memory_gb are initialized as 1 for the deployment configuration and deploy to Azure Container Instance(ACI).
+![](images/deploy2.png)
 
+---
+
+![](images/result.png)
+
+---
 
 ## Screen Recording
 
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
-
+[Link]() to the Demo.
