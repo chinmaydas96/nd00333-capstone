@@ -58,9 +58,14 @@
 
 * Our model give 0.92861 AUC
 
+
+
+
 ![](images/Automl1.png)
 
 ---
+
+* We can see that the optimized parameters are :
 
 ![](images/Automl2.png)
 
@@ -100,6 +105,24 @@
 
 ![](images/hyperdrive3.png)
 
+---
+
+![](images/hyperdrive4.png)
+
+---
+
+![](images/hyperdrive5.png)
+
+## Future Imporvement  
+
+* We can try with different algorithm rather than logistic regression to get better accuracy.
+
+* We can try different sampling methods.
+
+* We can try different policy parameter with cross-validation.
+
+
+
 ## Model Deployment
 
 * Automate ML model gives better result so we deployed the best run of AutoML.
@@ -123,5 +146,3 @@ Best run environment and score.py file is provided to the InferenceConfig. cpu_c
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
