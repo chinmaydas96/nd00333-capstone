@@ -75,6 +75,14 @@
 
 ---
 
+* At the end we will download the environment file. That we generated.
+
+![](images/generated.png)
+
+---
+
+![](images/env_file.png)
+
 #### Improvement :
 
 * To increase more data.
