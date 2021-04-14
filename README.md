@@ -12,10 +12,6 @@
 
 ## Dataset
 
-
-
-
-
 ### Overview
 
 * In this project we used kaggle's heart disease dataset.
@@ -29,7 +25,7 @@
 
 * This is a classification problem.
 
-* Death due to Heart Failure is predicted using information usch as anaemia, diabetes, high blood pressure, platelets, serum_creatinine, serum_sodium, creatinine_phosporous and ejection_fraction.
+* Death due to Heart Failure is predicted using information such as anaemia, diabetes, high blood pressure, platelets, serum_creatinine, serum_sodium, creatinine_phosporous and ejection_fraction.
 
 
 * We will use these features to predict if the patient has heart disease or not.
@@ -56,7 +52,7 @@
 ![](images/parameters.png)
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+
 
 * The key benefit of AutoML is the variaty of different classification algorithems, their outputs are compared against eachother to find the best fitting model. Here the best fitted model is the VotingEnsemble, a detailed view shows the n_estimators=25, n_jobs=0 and the metrix of weights for more information to look into the model.
 
@@ -90,7 +86,7 @@
 
 ### Results
 
-* As it turned out with an accuracy of 0.9078 (even better than the runs before) the hyperparameter combination of the Regularization Strength of 0.248 and 250 Max iterations lead to the best tuned model.
+* As it turned out with an accuracy of 0.8815 (even better than the runs before) the hyperparameter combination of the Regularization Strength of 0.1 and 50 Max iterations lead to the best tuned model.
 
 * 
 
@@ -122,7 +118,7 @@ Best run environment and score.py file is provided to the InferenceConfig. cpu_c
 
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
