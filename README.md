@@ -16,7 +16,7 @@
 
 * In this project we used kaggle's heart disease dataset.
 
-* [Link](https://www.kaggle.com/andrewmvd/heart-failure-clinical-data)
+* [Link](https://www.kaggle.com/ronitf/heart-disease-uci)
 
 * People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidaemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
 
@@ -138,6 +138,8 @@
 ![](images/deploy2.png)
 
 ---
+
+* Result of the deployed model
 
 ![](images/result1.png)
 
